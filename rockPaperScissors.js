@@ -30,14 +30,20 @@ function playRound(){
 
     if (comparison == 0) {
         console.log("It's a tie!");
+        return 0;
     }
     else if (comparison == 1) {
         console.log("You win!");
+        return 1;
     }
     else {
         console.log("You lose...");
+        return -1;
     }
-
 }
 
-playRound()
+var score = 0;
+for (let i = 0; Math.abs(score) < 3; i++) {
+    score += playRound();
+}
+console.log(score);

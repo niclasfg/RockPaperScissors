@@ -55,7 +55,13 @@ function playGame(){
             computerScore += 1;
         }
     }
-    console.log(playerScore + " - " + computerScore);
+    console.log("Player " + playerScore + " - " + " Computer " + computerScore);
+    if (playerScore > computerScore) {
+        console.log("Player wins!");
+    }
+    else{
+        console.log("Computer wins!");
+    }
 }
 
 playGame()

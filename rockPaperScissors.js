@@ -42,8 +42,20 @@ function playRound(){
     }
 }
 
-var score = 0;
-for (let i = 0; Math.abs(score) < 3; i++) {
-    score += playRound();
+
+function playGame(){    
+    var playerScore = 0;
+    var computerScore = 0;
+    while(playerScore < 3 && computerScore < 3){
+        var roundResult = playRound();
+        if(roundResult == 1){
+            playerScore += 1;
+        }
+        else if (roundResult == -1) {
+            computerScore += 1;
+        }
+    }
+    console.log(playerScore + " - " + computerScore);
 }
-console.log(score);
+
+playGame()

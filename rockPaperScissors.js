@@ -64,7 +64,7 @@ function playGame(){
     }
 }
 
-playGame()
+// playGame()
 
 
       

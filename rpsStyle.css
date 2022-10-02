@@ -7,6 +7,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-transform: uppercase;
 }
 
 .rpsButtonFrame {
@@ -18,16 +19,27 @@
     height: 20%;
     padding: 20px;
     margin: 20px;
+    border: solid;
+    border-width: thick;
     border-radius: 5px;
-    border-color: royalblue;
+    border-color: black;
     aspect-ratio: 1 / 1;
+}
+.rpsButton:hover {
+    border-color: gray;
 }
 
 .rpsResultsFrame{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-content: center;
 }
 
+.computerChoice {
+    font-size: xx-large;
+    text-align: center;
+}
 .scoreBox{
-
+    text-align: center;
+    font-size: xx-large;
 }

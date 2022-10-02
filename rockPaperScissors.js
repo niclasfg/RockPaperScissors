@@ -6,6 +6,8 @@ const playerChoiceText = "Choose your weapon: \n 1: Rock \n 2: Paper \n 3: Sciss
 function getComputerChoice() {
     var computerChoice = results[Math.floor(Math.random() * 3)];
     console.log("The computer choose: \t" + computerChoice);
+    const computerChoiceText = document.querySelector(".computerChoice");
+    computerChoiceText.textContent = "The computer choose: \t" + computerChoice;
     return computerChoice; 
 }
 
@@ -22,8 +24,8 @@ function getPlayerChoice(){
     }
 }
 
-function playRound(){
-    var playerChoice = results.indexOf(getPlayerChoice());
+function playRound(buttonID){
+    var playerChoice = results.indexOf(buttonID);
     var computerChoice = results.indexOf(getComputerChoice());
 
     var comparison = ((playerChoice - computerChoice)%3 + 3) %3;
@@ -40,6 +42,19 @@ function playRound(){
         console.log("You lose...");
         return -1;
     }
+}
+
+function updateScore(score){
+    const scoreText = document.querySelector(".scoreBox");
+    if (score == 1) {
+        scoreText.textContent = "You win!";
+        return;
+    }
+    if (score == -1) {
+        scoreText.textContent = "Computer win!"
+        return;
+    }
+    scoreText.textContent = "it's a tie!"
 }
 
 
@@ -64,7 +79,14 @@ function playGame(){
     }
 }
 
-// playGame()
+
+const buttons = document.querySelectorAll('.rpsButton');
+buttons.forEach((button) => {
+  button.addEventListener('click', () => {
+    var score = playRound(button.id);
+    updateScore(score);
+  });
+});
 
 
       

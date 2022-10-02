@@ -45,48 +45,75 @@ function playRound(buttonID){
 }
 
 function updateScore(score){
+    const resultText = document.querySelector(".resultText");
     const scoreText = document.querySelector(".scoreBox");
     if (score == 1) {
-        scoreText.textContent = "You win!";
-        return;
+        resultText.textContent = "1 point to player!";
+        playerScore += 1;
     }
-    if (score == -1) {
-        scoreText.textContent = "Computer win!"
-        return;
+    else if (score == -1) {
+        resultText.textContent = "1 point to the computer!";
+        computerScore += 1;
     }
-    scoreText.textContent = "it's a tie!"
+    else {
+        resultText.textContent = "A tie!";
+    }
+    scoreText.textContent = playerScore + " - " + computerScore;
 }
 
 
-function playGame(){    
-    var playerScore = 0;
-    var computerScore = 0;
-    while(playerScore < 3 && computerScore < 3){
-        var roundResult = playRound();
-        if(roundResult == 1){
-            playerScore += 1;
-        }
-        else if (roundResult == -1) {
-            computerScore += 1;
-        }
-    }
-    console.log("Player " + playerScore + " - " + " Computer " + computerScore);
+// function playGame(){    
+//     var playerScore = 0;
+//     var computerScore = 0;
+//     while(playerScore < 3 && computerScore < 3){
+//         var roundResult = playRound();
+//         if(roundResult == 1){
+//             playerScore += 1;
+//         }
+//         else if (roundResult == -1) {
+//             computerScore += 1;
+//         }
+//     }
+//     console.log("Player " + playerScore + " - " + " Computer " + computerScore);
+//     if (playerScore > computerScore) {
+//         console.log("Player wins!");
+//     }
+//     else{
+//         console.log("Computer wins!");
+//     }
+// }
+
+function finishGame() {
+    isGameOver = true;
+    const computerChoiceText = document.querySelector(".computerChoice");
+    computerChoiceText.textContent = "Game Over";
+    const resultText = document.querySelector(".resultText");
+    resultText.textContent = "";
+    const scoreText = document.querySelector(".scoreBox");
     if (playerScore > computerScore) {
-        console.log("Player wins!");
+        scoreText.textContent = "Player wins!";
     }
     else{
-        console.log("Computer wins!");
+        scoreText.textContent = "Computer wins!";
     }
 }
 
-
+var isGameOver = false;
 const buttons = document.querySelectorAll('.rpsButton');
 buttons.forEach((button) => {
   button.addEventListener('click', () => {
-    var score = playRound(button.id);
-    updateScore(score);
+    if (!isGameOver) {      
+        var score = playRound(button.id);
+        updateScore(score);
+        if (playerScore >= 3 || computerScore >= 3) {
+            finishGame();
+        }
+    }
   });
 });
+
+var playerScore = 0;
+var computerScore = 0;
 
 
       

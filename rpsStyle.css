@@ -39,6 +39,10 @@
     font-size: xx-large;
     text-align: center;
 }
+.resultText{
+    text-align: center;
+    font-size: large;
+}
 .scoreBox{
     text-align: center;
     font-size: xx-large;

@@ -1,0 +1,33 @@
+.body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.rpsFrame {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.rpsButtonFrame {
+    display: flex;
+    justify-content: center;
+}
+
+.rpsButton {
+    height: 20%;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    border-color: royalblue;
+    aspect-ratio: 1 / 1;
+}
+
+.rpsResultsFrame{
+    display: flex;
+    justify-content: center;
+}
+
+.scoreBox{
+
+}
